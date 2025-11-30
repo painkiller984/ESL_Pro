@@ -41,7 +41,7 @@ const swiperResults = new Swiper(".results__swiper", {
         1500: {
             slidesPerView: 3,
         },
-        1920: {
+        1900: {
             slidesPerView: 4,
         },
     },
@@ -72,7 +72,7 @@ const swiperBattles = new Swiper(".battles__swiper", {
         1500: {
             slidesPerView: 3,
         },
-        1920: {
+        1900: {
             slidesPerView: 4,
         },
     },
