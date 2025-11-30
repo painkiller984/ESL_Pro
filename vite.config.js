@@ -3,7 +3,6 @@ import { resolve } from "path";
 import viteImagemin from "vite-plugin-imagemin";
 
 export default defineConfig({
-    base: "./",
     build: {
         rollupOptions: {
             input: {
@@ -12,6 +11,7 @@ export default defineConfig({
             },
         },
     },
+    base: "./",
     plugins: [
         viteImagemin({
             gifsicle: {
