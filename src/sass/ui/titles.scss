@@ -1,0 +1,47 @@
+@use "/src/sass/base/variables.scss" as *;
+
+.title-h1 {
+    color: $white;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 73px;
+}
+
+.title-h2 {
+    color: $white;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 45px;
+}
+
+.title-h3 {
+    color: $white;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+    .title-h1 {
+        color: $white;
+        font-size: 50px;
+        font-weight: 700;
+        line-height: 73px;
+    }
+
+    .title-h2 {
+        color: $white;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 45px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .title-h1 {
+        font-size: 32px;
+    }
+    .title-h2 {
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,306 @@
+@use "/src/sass/base/variables.scss" as *;
+@use "/src/sass/base/mixins.scss" as *;
+
+.results {
+    padding: 142px 0 152px;
+    background-color: rgba(2, 1, 6, 1);
+    &__buttons {
+        position: relative;
+        margin-top: 40px;
+        display: flex;
+        gap: none;
+        &::before {
+            position: absolute;
+            content: "";
+            top: -1px;
+            width: 100%;
+            height: 2px;
+            background-color: $yellow;
+        }
+        &_matches {
+            border: none;
+            color: $white;
+            background: $yellow;
+        }
+        &_battles {
+            border: 1px solid $yellow;
+            color: $white;
+            background: transparent;
+        }
+    }
+    .swiper-slide {
+        padding: 0 5px 5px;
+        .card {
+            display: block;
+            position: relative;
+            width: 100%;
+            min-height: 341px;
+            text-decoration: none;
+            border-radius: 10px;
+            background-color: $gray;
+            transition: box-shadow 0.3s ease;
+            &:hover {
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(255, 184, 0, 0.5),
+                    0 0 10px rgba(255, 184, 0, 0.75);
+
+                &::before {
+                    opacity: 1;
+                }
+
+                .card__watch_btn {
+                    opacity: 1;
+                    pointer-events: auto;
+                }
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                border-radius: 10px;
+                background: rgba(0, 0, 0, 0.6);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                pointer-events: none;
+            }
+            &__watch_btn {
+                position: absolute;
+                gap: 10px;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                color: $white;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.3s ease;
+                .icon-play {
+                    font-size: 14px;
+                }
+            }
+            &__header {
+                padding: 40px 53px 30px 30px;
+                display: flex;
+                justify-content: space-between;
+                &_date {
+                    position: relative;
+                    color: $white;
+                    font-size: 20px;
+                    font-weight: 700;
+                    line-height: 20px;
+                    transform: translateY(10px);
+                    &::before {
+                        content: "29 Oct";
+                        position: absolute;
+                        top: -20px;
+                        left: 7px;
+                        color: $white;
+
+                        font-size: 12px;
+                        font-weight: 400;
+                        line-height: 20px;
+                        text-align: left;
+                    }
+                }
+            }
+
+            &__info {
+                padding: 0 37px 30px;
+                &_line {
+                    margin-bottom: 36px;
+                    height: 1px;
+                    background-color: $yellow;
+                }
+                &_logo {
+                    display: flex;
+                    justify-content: flex-start;
+                    gap: 20px;
+                }
+                &_score {
+                    margin-top: 8px;
+                    display: grid;
+                    grid-template-columns: 1fr 58px;
+                    grid-template-rows: repeat(2, minmax(22px, auto));
+                    justify-content: space-between;
+                    row-gap: 15px;
+                    color: $white;
+                    p {
+                        display: flex;
+                        align-items: center;
+                        font-size: 20px;
+                        font-weight: 700;
+                        line-height: 35px;
+                    }
+                    & p:nth-child(3) {
+                        line-height: 24px;
+                    }
+                    .score {
+                        @include flex-center;
+                        align-self: center;
+                        height: 30px;
+                        border: 1px solid $yellow;
+                        font-size: 14px;
+                        font-weight: 700;
+                        line-height: 20px;
+                    }
+                }
+                &_time {
+                    margin-top: 15px;
+                    display: flex;
+                    justify-content: space-between;
+                    color: rgba(117, 124, 132, 1);
+                    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+    .swiper.results__swiper {
+        margin-top: 88px;
+    }
+    &__navigation {
+        @include flex-center;
+        margin-top: 55px;
+        gap: 24px;
+        .swiper-pagination#results__navigation_pagination {
+            @include pagination;
+            width: auto;
+            position: static;
+            .swiper-pagination-bullet {
+                @include bullets;
+                background-color: $gray;
+                &-active {
+                    background-color: $yellow;
+                }
+            }
+        }
+
+        .swiper-navigation-icon {
+            display: none;
+        }
+        .swiper-button-prev,
+        .swiper-button-next {
+            @include flex-center;
+            width: 85px;
+            height: 85px;
+            border: 2px solid $yellow;
+            border-radius: 50%;
+            position: static;
+            background: transparent;
+            -webkit-tap-highlight-color: transparent;
+            span {
+                font-size: 85px;
+                color: $white;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .results {
+        .swiper-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .swiper-pagination {
+            display: none;
+        }
+        &__navigation {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .results {
+        .swiper-slide {
+            .card {
+                -webkit-tap-highlight-color: transparent;
+                padding: 15px 23px 19px;
+                min-height: 235px;
+                &:focus {
+                    border-radius: 10px;
+                    box-shadow: 0 0 10px rgba(255, 184, 0, 0.5),
+                        0 0 10px rgba(255, 184, 0, 0.75);
+
+                    &::before {
+                        opacity: 1;
+                    }
+
+                    .card__watch_btn {
+                        opacity: 1;
+                        pointer-events: auto;
+                    }
+                }
+                &__watch_btn {
+                    position: absolute;
+                    gap: 10px;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    color: $white;
+                    opacity: 0;
+                    pointer-events: none;
+                    transition: opacity 0.3s ease;
+                    .icon-play {
+                        font-size: 14px;
+                    }
+                }
+                &__header {
+                    padding: 0 0 13px;
+                    &_date {
+                        color: $white;
+                        font-size: 18px;
+                        transform: translateY(10px);
+                        &::before {
+                            content: "29 Oct";
+                            position: absolute;
+                            top: -20px;
+                            left: 7px;
+                            color: $white;
+
+                            font-size: 12px;
+                            font-weight: 400;
+                            line-height: 20px;
+                            text-align: left;
+                        }
+                    }
+                }
+
+                &__info {
+                    padding: 0;
+                    &_line {
+                        margin-bottom: 19px;
+                    }
+                    &_logo {
+                        width: 25px;
+                        height: 25px;
+                    }
+                    &_score {
+                        margin-top: 11px;
+                        row-gap: 5px;
+                        p {
+                            font-size: 16px;
+                        }
+                    }
+                    &_time {
+                        margin-top: 12px;
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .results {
+        &__buttons {
+            a {
+                width: 100%;
+            }
+        }
+    }
+}

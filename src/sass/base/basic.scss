@@ -1,0 +1,65 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+figure,
+p,
+ol,
+ul {
+    margin: 0;
+}
+
+ol[role="list"],
+ul[role="list"] {
+    list-style: none;
+    padding-inline: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+img {
+    display: block;
+    max-inline-size: 100%;
+}
+
+html {
+    font-family: Montserrat, sans-serif;
+}
+
+.container {
+    padding: 0 200px;
+}
+
+@media screen and (max-width: 1500px) {
+    .container {
+        padding: 0 100px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        padding: 0 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+    }
+}

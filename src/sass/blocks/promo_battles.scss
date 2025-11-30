@@ -1,0 +1,29 @@
+@use "/src/sass/base/variables.scss" as *;
+@use "/src/sass/base/mixins.scss" as *;
+
+.promo {
+    &__header_icons_battles-social {
+        padding-right: 37px;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        .icon-vk {
+            transform: translateX(-5px);
+        }
+        a {
+            @include flex-center;
+            width: 30px;
+            height: 30px;
+            text-decoration: none;
+            color: $white;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .promo {
+        &__header_icons_battles-social {
+            gap: 15px;
+        }
+    }
+}

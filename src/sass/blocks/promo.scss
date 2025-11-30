@@ -1,0 +1,155 @@
+@use "/src/sass/base/variables.scss" as *;
+@use "/src/sass/base/mixins.scss" as *;
+
+.promo {
+    position: relative;
+    .container {
+        position: absolute;
+        top: 13px;
+        z-index: 1;
+        pointer-events: none;
+    }
+    .swiper-slide {
+        min-height: 994px;
+        margin-bottom: -2px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    &__slide-1 {
+        background-image: url("/src/img/promo_img1.jpg");
+    }
+    &__slide-2 {
+        background-image: url("/src/img/promo_img1.jpg");
+    }
+    &__slide-3 {
+        background-image: url("/src/img/promo_img1.jpg");
+    }
+    .swiper.promo__swiper {
+        .swiper-pagination {
+            @include pagination;
+            bottom: 30px;
+            .swiper-pagination-bullet {
+                background-color: $white;
+                @include bullets;
+                &-active {
+                    background-color: $yellow;
+                }
+            }
+        }
+    }
+    &__header {
+        max-width: 740px;
+        pointer-events: auto;
+        &_icons {
+            display: flex;
+            justify-content: space-between;
+            &-social {
+                display: flex;
+                align-items: center;
+                gap: 30px;
+                a {
+                    @include flex-center;
+                    width: 30px;
+                    height: 30px;
+                    text-decoration: none;
+                    color: $white;
+                }
+            }
+        }
+
+        &_line {
+            margin-top: 30px;
+            border: 1px solid $yellow;
+        }
+    }
+
+    &__info {
+        &_img {
+            width: 191px;
+            height: 60px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        margin-top: 161px;
+        max-width: 703px;
+
+        &_title {
+            color: $white;
+            margin-top: 35px;
+        }
+
+        p {
+            margin-top: 25px;
+            color: $light;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 22px;
+            text-align: left;
+        }
+    }
+
+    &__buttons {
+        margin-top: 155px;
+        display: flex;
+        gap: 35px;
+        pointer-events: auto;
+
+        &_read {
+            color: $black;
+            background: $yellow;
+            border: none;
+        }
+
+        &_tickets {
+            color: $white;
+            border: 2px solid $yellow;
+            background: transparent;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .promo {
+        &__info {
+            p {
+                font-size: 16px;
+            }
+        }
+        .swiper-slide {
+            background-position: 70% center;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .promo {
+        .container {
+            inset: 0;
+            top: 10px;
+        }
+        &__buttons {
+            justify-content: center;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .promo {
+        &__info {
+            margin-top: 100px;
+            p {
+                font-size: 16px;
+            }
+        }
+        &__buttons {
+            margin-top: 100px;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
